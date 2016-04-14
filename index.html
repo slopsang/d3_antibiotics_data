@@ -1,0 +1,85 @@
+<!-- 
+
+  University of Washington
+  INFO 474 - Spring 2016
+  Michael Freeman / Jordan Hand
+  Visualization Design Assignment #1
+  Sang Ouk Kim / 1127528
+  April 12, 2016
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INFO474_Sang_VD1</title>
+  <link rel="shortcut icon" type="image/png" href="img/bargraph.png">
+  <link href="css/main.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Visualization Design #1</h1>
+    <p>University of Washington || INFO 474 - Spring 2016 || Sang Ouk Kim || 1127528 || April 12, 2016</p>
+  </div>
+  <hr>
+
+  <div id="objective" class="container">
+    <h3>1. Objective</h3>
+    <p>
+      The purpose of this data visualization is to improve my ability to leverage visual encodings. Quantitative messages always reveal relationships, and it's these relationships that tell the great stories that deserve attention. Throughout this assignment, I will answer specific questions about a dataset of different bacteria and antibiotics by using <b>Plotly JavaScript API.</b> I will also defense my design choices in depth by explaining why my visual encodings are appropriate to answer specific questions and how my decisions facilitate effective communication.<br>
+    </p>
+  </div>
+  <hr>
+
+  <section id="table" class="container">
+    <h3>2. The Antibiotics Data</h3>
+    <p>
+      After the World War II, antibiotics were considered as "wonder drugs", since they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, performance of the three most popular antibiotics on 16 bacteria were gathered. The values in the dataset represent the <b>minimum inhibitory concentration(MIC),</b> a measure of the effectiveness of the antibiotic, which represents the concentration of antibiotic required to prevent growth in vitro. Minimum inhibitory concentrations(MICs) can be very useful in selecting the best antimicrobial agent for a patient with known culture and susceptibility results. Also, the reaction of the bacteria to Gram staining is described by the covariate “gram staining”.<br><br>
+    </p>
+    <div id="dataTable"></div>
+  </section>
+  <hr>
+
+  <section id="graph" class="container">
+    <h3>3. Questions</h3>
+    <h4>Q1. Which antibiotic works the best for Streptococcus hemolyticus?</h4>
+    <p class="whatType">Type: Bar Chart</p>
+    <div id="graph1" style="width: 750px; height: 400px;"></div>
+    <h4>Response</h4>
+    <p>
+      The answer of this question is "Penicilin" because Penicilin has the lowest MIC(minimum inhibitory concentration) value, which means that Penicilin requires the lowest inhibitory concentration to prevent growth of Streptococcus hemolyticus in vitro among other antibiotics.<br><br>Here, I used a vertical bar graph to answer question because bar graph can make comparison easy and save time of the user to make quick comparision. In a vertical bar graph, independent value are plotted along a horizontal axis from left to right. By using a bar graph, estimates can be made quickly and accurately. Also, bar graphs can be easily understood due to widespread use in business and the media.<br><br>During the process of turning this data into a visual encoding(a bar graph), I thought about giving a different color for each bar so that user can easily distinguish among the antibiotics. However, I decided to give them a same color because they are representing a same information, which is the value of minimum inhibitory concentration, and giving a different color to each bar graph might cause unnecessary confusion. I also added a line around each bar graph so that the bars look more clear and accurate to user. This question contains very important information because MIC can be used to select the best antimicrobial agent for a patient. Although this question('Which antibiotic works the best for Streptococcus hemolyticus?') is kind of simple and could be answered by just reading the table without putting an effort of turning a data into a visual encoding, I wanted to point out that the visual encoding will still be helpful to user to quickly and accurately make a decision by just looking at the visual(bar graph), instead of investgating the data(table). 
+    </p>
+  </section>
+
+  <section id="graph" class="container">
+    <h4>Q2. Based on the given dataset, which antibiotic usually cures bacteria at lower MIC between Streptomycin and Neomycin?</h4>
+    <p class="whatType">Type: Grouped Bar Chart</p>
+    <div id="graph2" style="width: 850px; height: 400px;"></div>
+    <h4 id="Resp">Response</h4>
+    <p>
+      The answer of this question is Neomycin because Neomycin can cure bacteria at lower MIC than Streptomycin can do in 13 out of 16 bacteria. In other words, Neomycin can cure bacteria at lower MIC than Streptomycin can do by 81 per cent.<br><br>Here, I used a grouped bar chart to answer question because grouped bar chart is good for showing information about different sub-groups of the main categories. A separate bar represents each of the sub-groups (e.g. MIC of each bacteria for Streptomycin) and these are coloured differently to distinguish between them. Usually, a legend or key is provided to indicate what sub-group each of the colours represent. I put it at the right side of the chart. When using a grouped bar chart, it is important to ensure that the chart does not contain too much information making it complicated to read and interpret. Grouped bar charts can be used in both vertical or horizontal charts depending upon the nature of the data to be presented.<br><br>This questions is important because again, information about minimum inhibitory concentrations of bacteria for different antibiotics can be used to select the best antimicrobial agent for a patient. I also used Logarithmic Axes in graph to present and compare information more accurately. 
+    </p>
+  </section>
+
+  <section id="graph" class="container">
+    <h4>Q3. Based on the given dataset, does Penicilin mostly work better for Gram-positive bacteria or Gram-negative bacteria?</h4>
+    <p class="whatType">Type: Bar Chart</p>
+    <div id="graph3" style="width: 900px; height: 400px;"></div>
+    <h4 id="Resp">Response</h4>
+    <p>
+      The answer of this questions is "Penicilin usually works better for Gram-positive bacteria". In the dataset, there are seven different Gram-positive bacteria and nine different Gram-negative bacteria. When you look at the graphic encoding of the data, you can see that almost every Gram-positive bacteria need less than 1 minimum inhibitory concentration(MIC). However, more than half of the Gram-negative bacteria require more than 1 minimum inhibitory concentration(MIC) to prevent growth in vitro, and most of them even need more than 100 MIC to prevent growth in vitro.<br><br>Here, I used bar graph because it can summarize a large amount of data in a visual, easily interpretable form. A gram stain is a type of microbiology test that determines whether bacteria are present. This type of question is important because the difference between Gram-positive and Gram-negative bacteria is used when determining appropriate treatment for an infection.<br><br>During the gram stain test, bacteria that are stained dark blue or violet are Gram-positive bacteria. Here, I set the color of bar graphs of bacteria that are Gram-positive as violet, so that the color of bar graph and the result of Gram staining of bacteria would match together to help understanding of the visual encoding. I also used Logarithmic Axes in graph to present and compare information more accurately.
+    </p>
+  </section>
+  <hr>
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+/* 
+	main CSS file
+*/
+
+p {
+  opacity:.7
+}
+h1 {
+	padding-top: 50px;
+	padding-bottom: 25px;
+}
+#intro {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.whatType {
+	text-align: right;
+}
+#graph {
+	padding-bottom: 100px;
+}
+#Resp {
+	padding-top: 50px;
+}
